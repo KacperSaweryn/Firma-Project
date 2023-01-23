@@ -1,0 +1,524 @@
+﻿<Window x:Class="Firma.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Firma"
+    
+        xmlns:helpers="clr-namespace:Firma.Helpers"
+
+        mc:Ignorable="d"
+        Title="Magazynex" Height="450" Width="800"
+        Icon="/Views/Content/Icons/product-48.png"
+        WindowState="Maximized"
+        Name="mainWindow">
+
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml" />
+
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="F" Command="{Binding NowaFakturaCommand}"></KeyBinding>
+        <KeyBinding Gesture="Ctrl+Alt+F" Command="{Binding FakturyCommand}"></KeyBinding>
+    </Window.InputBindings>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Margin="3" VerticalAlignment="Center">
+         
+            <MenuItem Header="_Magazyn">
+                <MenuItem Header="Towary">
+                    <MenuItem.Icon>
+                        <Image Source="Content/Icons/package-variant-closed.png"></Image>
+                    </MenuItem.Icon>
+                    <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/Jeden.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    <MenuItem Header="Nowy" Command="{Binding NowyTowarCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/product-48.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="PZ" Command="{Binding AddTowarToWarehouseCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/package-variant-closed-plus-48.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Księgowość">
+                <MenuItem Header="_Faktury">
+                    <MenuItem.Icon>
+                        <Image Source="Content/Icons/file-document-outline.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding FakturyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/documents-48.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowa" Command="{Binding NowaFakturaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-new-copy-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Firmy">
+                <MenuItem Header="_Kontrahenci">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/account.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszyscy" Command="{Binding KontrahenciCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-users-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding NowyKontrahentCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-add-male-user-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Adresy">
+                <MenuItem Header="_Adresy">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/icons8-location-64.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding AdresyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-location-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding AdresCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-business-building-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Osoby">
+                <MenuItem Header="_Osoby">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/account.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding OsobyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-users-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowa" Command="{Binding OsobaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-add-male-user-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Pracownicy">
+                <MenuItem Header="_Pracownicy">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/account.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszyscy" Command="{Binding PracownicyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-name-tag-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding PracownikCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-manager-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Statusy">
+                <MenuItem Header="_Statusy">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/icons8-ok-64.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding StatusyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-ok-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding StatusCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-sum-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Raporty">
+                <MenuItem Header="_Raporty">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/icons8-graph-report-64.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Sprzedaży" Command="{Binding SaleReportCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-graph-report-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Faktur w okresie" Command="{Binding InvoiceReportCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-business-report-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Program">
+                <MenuItem Header="_Zakoncz" Click="MenuItem_ExitOnClick">
+
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/logout-48.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Expander Grid.Row="2" Header="Narzędzia" IsExpanded="False">
+            <Ribbon SelectedIndex="0" SelectionChanged="Ribbon_SelectionChanged">
+                <Ribbon.HelpPaneContent>
+                    <Hyperlink NavigateUri="https://stackoverflow.com"
+                               helpers:HyperlinkExtensions.IsExternal="true">
+                        Pomoc
+                    </Hyperlink>
+                </Ribbon.HelpPaneContent>
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu Visibility="Collapsed" />
+                </Ribbon.ApplicationMenu>
+                <RibbonTab Header="Magazyn">
+                    <RibbonGroup Header="Towar">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/product-48.png" Label="Towary">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/product-48.png"
+                                            Header="Nowy" Command="{Binding NowyTowarCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/Jeden.png"
+                                            Header="Wszystkie" Command="{Binding TowaryCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png"
+                                            Header="PZ" Command="{Binding AddTowarToWarehouseCommand}" />
+                        </RibbonMenuButton>
+
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Księgowość">
+                    <RibbonGroup Header="Faktury">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/file-document-outline.png"
+                                          Label="Faktury">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/documents-48.png"
+                                            Header="Wszystkie" Command="{Binding FakturyCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-new-copy-64.png"
+                                            Header="Nowa" Command="{Binding NowaFakturaCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Firmy">
+                    <RibbonGroup Header="Kontrahent">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/account.png" Label="Kontrahent">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
+                                            Header="Nowy" Command="{Binding NowyKontrahentCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
+                                            Header="Wszyscy" Command="{Binding KontrahenciCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Adresy">
+                    <RibbonGroup Header="Adres">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-home-address-64.png"
+                                          Label="Adres">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-home-address-64.png"
+                                            Header="Nowy" Command="{Binding AdresCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-location-64.png"
+                                            Header="Wszyscy" Command="{Binding AdresyCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Osoby">
+                    <RibbonGroup Header="Osoba">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-add-male-user-64.png"
+                                          Label="Osoba">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-add-male-user-64.png"
+                                            Header="Nowy" Command="{Binding OsobaCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-users-64.png"
+                                            Header="Wszyscy" Command="{Binding OsobyCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Pracownicy">
+                    <RibbonGroup Header="Pracownik">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-manager-64.png"
+                                          Label="Pracownik">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-manager-64.png"
+                                            Header="Nowy" Command="{Binding PracownikCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-name-tag-64.png"
+                                            Header="Wszyscy" Command="{Binding PracownicyCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Raporty">
+                    <RibbonGroup Header="Raporty">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-business-report-64.png"
+                                          Label="Raporty">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-report-64.png"
+                                            Header="Faktur" Command="{Binding InvoiceReportCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-graph-report-64.png"
+                                            Header="Sprzedaży" Command="{Binding SaleReportCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+            </Ribbon>
+        </Expander>
+
+        <ToolBar Grid.Row="1" Grid.Column="0">
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyTowarCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="80" Height="15">
+                            <TextBlock>Nowy towar</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/product-48.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding TowaryCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Wszystkie towary</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/Jeden.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding AddTowarToWarehouseCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>PZ</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding FakturyCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Wszystkie faktury</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/documents-48.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding NowaFakturaCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Nowa faktura</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-new-copy-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding NowyKontrahentCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Nowy kontrahent</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-organization-64.png" />
+                </ToggleButton.Background>
+
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding KontrahenciCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Wszyscy kontrahenci</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-business-building-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding AdresyCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Adresy</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-home-address-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding AdresCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Nowy Adres</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-location-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding OsobaCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Nowa Osoba</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-add-male-user-64.png" />
+                </ToggleButton.Background>
+
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding OsobyCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Wszystkie Osoby</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-users-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding PracownikCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Pracownik</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-manager-64.png" />
+                </ToggleButton.Background>
+
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding PracownicyCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Pracownicy</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-name-tag-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding InvoiceReportCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Raport Faktur</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-business-report-64.png" />
+                </ToggleButton.Background>
+
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding SaleReportCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Raport sprzedazy</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-graph-report-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+
+        </ToolBar>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Expander Grid.Column="0" ExpandDirection="Right" IsExpanded="False">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Border>
+                        <HeaderedContentControl
+                            Header="Operacje"
+                            Content="{Binding Path=Commands}"
+                            ContentTemplate="{StaticResource CommandsTemplate}"
+                            Style="{StaticResource MainHCCStyle}" />
+                    </Border>
+                </ScrollViewer>
+            </Expander>
+
+            <Border Grid.Column="1">
+                <HeaderedContentControl
+                    Content="{Binding Path=Workspaces}"
+                    ContentTemplate="{StaticResource WorkspacesTemplate}"
+                    Style="{StaticResource MainHCCStyle}" />
+
+            </Border>
+        </Grid>
+
+        <StatusBar Grid.Row="4">
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock>Kacper Saweryn</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

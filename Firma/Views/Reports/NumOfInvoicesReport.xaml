@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Firma.Views.Reports.NumOfInvoicesReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views.Reports"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Margin="8" Background="WhiteSmoke" Height="175" Width="380" VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Ilosc faktur wystawionych w danym okresie</Label>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="120" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="3" Content="Od:"></Label>
+                    <DatePicker Grid.Column="1" Margin="3" SelectedDate="{Binding DataOd}"></DatePicker>
+                    <Label Grid.Column="3" Margin="3" Content="Do:"></Label>
+                    <DatePicker Grid.Column="4" Margin="3" SelectedDate="{Binding DataDo}"></DatePicker>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                   
+                </Grid>
+                <Button Grid.Row="3" Margin="3" Content="Pokaż" Command="{Binding ObliczCommand}"></Button>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Ilosc wynosi:"></Label>
+                    <Label Grid.Column="1" Content="{Binding Ilosc}"></Label>
+
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,231 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:Firma.ViewModels"
+                    xmlns:vw="clr-namespace:Firma.Views"
+                    
+                    xmlns:reports="clr-namespace:Firma.Views.Reports"
+                    xmlns:vm1="clr-namespace:Firma.ViewModels.Reports"
+                    xmlns:allViews="clr-namespace:Firma.Views.AllViews"
+                    xmlns:newViews="clr-namespace:Firma.Views.NewViews"
+                    xmlns:allViewModels="clr-namespace:Firma.ViewModels.AllViewModels"
+                    xmlns:newViewModels="clr-namespace:Firma.ViewModels.NewViewModels"
+                    xmlns:warehouseViews="clr-namespace:Firma.Views.WarehouseViews">
+
+
+    <DataTemplate DataType="{x:Type allViewModels:AllCommodityViewModel}">
+        <allViews:AllCommodityView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewCommodityViewModel}">
+        <newViews:NewCommodityView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewInvoiceViewModel}">
+        <newViews:NewInvoiceView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllInvoiceViewModel}">
+        <allViews:AllInvoiceView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllContractorViewModel}">
+        <allViews:AllContractorView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewContractorViewModel}">
+        <newViews:NewContractorView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllAddressViewModel}">
+        <allViews:AllAddressView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewAddressViewModel}">
+        <newViews:NewAddressView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllTowarRodzajViewModel}">
+        <allViews:AllCommodityTypeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewCommodityTypeViewModel}">
+        <newViews:NewCommodityTypeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllStatusViewModel}">
+        <allViews:AllStatusView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewStatusViewModel}">
+        <newViews:NewStatusView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllUnitViewModel}">
+        <allViews:AllUnitView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewUnitViewModel}">
+        <newViews:NewUnitView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllPersonViewModel}">
+        <allViews:AllPersonView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewPersonViewModel}">
+        <newViews:NewPersonView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllCredentialViewModel}">
+        <allViews:AllCredentialView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewCredentialViewModel}">
+        <newViews:NewCredentialView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllEmployeeViewModel}">
+        <allViews:AllEmployeeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewEmployeeViewModel}">
+        <newViews:NewEmployeeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllContractorTypeViewModel}">
+        <allViews:AllContractorTypeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewContractorTypeViewModel}">
+        <newViews:NewContractorTypeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllContractorToChooseViewModel}">
+        <allViews:AllContractorSimpleView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type allViewModels:AllInvoicePositionViewModel}">
+        <allViews:AllInvoicePositionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type newViewModels:NewInvoicePositionViewModel}">
+        <newViews:NewInvoicePositionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm1:SaleReportViewModel}">
+        <reports:SaleReportView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm1:NumOfInvoicesInTImeViewModel}">
+        <reports:NumOfInvoicesReport />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type newViewModels:AddCommodityViewModel}">
+        <warehouseViews:AddCommodityView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type newViewModels:NewPaymentMethodViewModel}">
+        <newViews:NewPaymentMethodView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type allViewModels:AllPaymentMethodsViewModel}">
+        <allViews:AllPaymentMethodsView />
+    </DataTemplate>
+
+
+    <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+         
+                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                    <DockPanel>
+                        <ContentPresenter
+                            DockPanel.Dock="Top"
+                            ContentSource="Header"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                        <ContentPresenter
+                            ContentSource="Content"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+ 
+    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <DataTemplate x:Key="CommandsTemplate">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding DisplayName}" Command="{Binding Path=Command}" Margin="6" Padding="5 " 
+                            Background="LightGray" BorderThickness="0" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+
+  
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="120">
+            <Button
+                Command="{Binding Path=CloseCommand}"
+                Content="X"
+                Cursor="Hand"
+                DockPanel.Dock="Right"
+                Focusable="False"
+                FontFamily="Courier"
+                FontSize="9"
+                FontWeight="Bold"
+                Margin="0,1,0,0"
+                Padding="0"
+                VerticalContentAlignment="Bottom"
+                Width="16" Height="16" />
+            <ContentPresenter
+                Content="{Binding Path=DisplayName}"
+                VerticalAlignment="Center" />
+        </DockPanel>
+    </DataTemplate>
+
+  
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding}"
+            ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+            Margin="4" />
+    </DataTemplate>
+
+    <Style x:Key="ButtonZapisz" TargetType="{x:Type Control}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="20" />
+    </Style>
+
+    <Style x:Key="ButtonLeweMenu" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Background" Value="Azure"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+</ResourceDictionary>

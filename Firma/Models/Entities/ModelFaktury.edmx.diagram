@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6430c61302674ebd9833e3608ad486ae" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="FirmaProjectModel.Adres" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Credential" Width="1.5" PointX="1.5" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Faktura" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Jednostka" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Kontrahent" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.KontrahentRodzaj" Width="1.5" PointX="1.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Osoba" Width="1.5" PointX="1.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.PozycjaFaktury" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Pracownik" Width="1.5" PointX="0.75" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.SposobPlatnosci" Width="1.5" PointX="0.75" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Status" Width="1.5" PointX="1.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Towar" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.TowarRodzaj" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Vat" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Wojewodztwo" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Adres_Wojewodztwo" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Kontrahent_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Osoba_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Pracownik_Credential" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Faktura_Kontrahent" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Faktura_Pracownik" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Faktura_SpPlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_PozycjaFaktury_Faktura" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Towar_Jednostka" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Kontrahent_Osoba" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Kontrahent_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Pracownik_Osoba" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_PozycjaFaktury_Towar" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Towar_Rodzaj" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Towar_Sprzedaz" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Towar_Zakup" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaProjectModel.FK_PozycjaFaktury_Vat" />
+        <EntityTypeShape EntityType="FirmaProjectModel.Ilosc" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="FirmaProjectModel.FK_Ilosc_Towar" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
