@@ -47,6 +47,8 @@
     <None Remove="Views\Content\Icons\icons8-home-address-64.png" />
     <None Remove="Views\Content\Icons\icons8-location-64.png" />
     <None Remove="Views\Content\Icons\icons8-manager-64.png" />
+    <None Remove="Views\Content\Icons\icons8-money-bag-64.png" />
+    <None Remove="Views\Content\Icons\icons8-money-bill-64.png" />
     <None Remove="Views\Content\Icons\icons8-name-tag-64.png" />
     <None Remove="Views\Content\Icons\icons8-new-copy-64.png" />
     <None Remove="Views\Content\Icons\icons8-ok-64.png" />
@@ -135,6 +137,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\icons8-manager-64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\icons8-money-bag-64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\icons8-money-bill-64.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\icons8-name-tag-64.png">

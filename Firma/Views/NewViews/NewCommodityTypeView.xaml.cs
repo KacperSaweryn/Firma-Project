@@ -5,7 +5,7 @@ namespace Firma.Views.NewViews
     /// <summary>
     /// Interaction logic for NewCommodityTypeView.xaml
     /// </summary>
-    public partial class NewCommodityTypeView : OneViewBase
+    public partial class NewCommodityTypeView : OneAllNoAddViewBase
     {
         public NewCommodityTypeView()
         {

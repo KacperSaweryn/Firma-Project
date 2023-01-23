@@ -44,7 +44,7 @@
         <newViews:NewAddressView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type allViewModels:AllTowarRodzajViewModel}">
+    <DataTemplate DataType="{x:Type allViewModels:AllCommodityTypeViewModel}">
         <allViews:AllCommodityTypeView />
     </DataTemplate>
 

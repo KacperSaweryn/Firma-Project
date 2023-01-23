@@ -9,7 +9,7 @@
 
         mc:Ignorable="d"
         Title="Magazynex" Height="450" Width="800"
-        Icon="/Views/Content/Icons/product-48.png"
+        Icon="/Views/Content/Icons/package-variant-closed-plus-48.png"
         WindowState="Maximized"
         Name="mainWindow">
 
@@ -38,17 +38,32 @@
                     <MenuItem.Icon>
                         <Image Source="Content/Icons/package-variant-closed.png"></Image>
                     </MenuItem.Icon>
-                    <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}">
+                    <MenuItem Header="_Wszystkie" Command="{Binding TowaryCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/Jeden.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem> 
-                    <MenuItem Header="Nowy" Command="{Binding NowyTowarCommand}">
+                    <MenuItem Header="_Nowy" Command="{Binding NowyTowarCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/product-48.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="PZ" Command="{Binding AddTowarToWarehouseCommand}">
+                    <MenuItem Header="_PZ" Command="{Binding AddTowarToWarehouseCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/package-variant-closed-plus-48.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Rodzaje Towaru">
+                    <MenuItem.Icon>
+                        <Image Source="Content/Icons/product-48.png"></Image>
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding TowarRodzajCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/Jeden.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding NowyTowarRodzajCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/package-variant-closed-plus-48.png"></Image>
                         </MenuItem.Icon>
@@ -140,6 +155,23 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="_Sposoby płatnosci">
+                <MenuItem Header="_Sposoby płatnosci">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/account.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding SposobyPlatnosciCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-money-bill-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowy" Command="{Binding SposobPlatnosciCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-money-bill-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="_Statusy">
                 <MenuItem Header="_Statusy">
                     <MenuItem.Icon>
@@ -204,7 +236,14 @@
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png"
                                             Header="PZ" Command="{Binding AddTowarToWarehouseCommand}" />
                         </RibbonMenuButton>
-
+                    </RibbonGroup>
+                    <RibbonGroup Header="Rodzaj Towaru">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png" Label="Rodzaje">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/package-variant-closed.png"
+                                            Header="Nowy" Command="{Binding NowyTowarRodzajCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/Jeden.png"
+                                            Header="Wszystkie" Command="{Binding TowarRodzajCommand}" />
+                        </RibbonMenuButton>
                     </RibbonGroup>
                 </RibbonTab>
                 <RibbonTab Header="Księgowość">
@@ -220,7 +259,7 @@
                 </RibbonTab>
                 <RibbonTab Header="Firmy">
                     <RibbonGroup Header="Kontrahent">
-                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/account.png" Label="Kontrahent">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-business-building-64.png" Label="Kontrahent">
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
                                             Header="Nowy" Command="{Binding NowyKontrahentCommand}" />
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
@@ -424,6 +463,35 @@
                 </ToggleButton.ToolTip>
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/icons8-users-64.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator />
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding SposobPlatnosciCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Nowa Platnosc</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-money-bill-64.png" />
+                </ToggleButton.Background>
+
+            </ToggleButton>
+
+            <ToggleButton Width="32" Height="32" Margin="2"
+                          Command="{Binding SposobyPlatnosciCommand}">
+                <ToggleButton.ToolTip>
+                    <ToolTip>
+                        <DockPanel Width="100" Height="15">
+                            <TextBlock>Sposoby Platnosci</TextBlock>
+                        </DockPanel>
+                    </ToolTip>
+                </ToggleButton.ToolTip>
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/icons8-money-bag-64.png" />
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator />

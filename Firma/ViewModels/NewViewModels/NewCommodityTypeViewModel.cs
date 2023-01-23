@@ -1,18 +1,33 @@
-﻿using Firma.Models.Entities;
+﻿using System;
+using System.ComponentModel;
+using System.Linq;
+using Firma.Models.Entities;
+using Firma.Models.Validators;
 using Firma.ViewModels.Abstract;
 
 namespace Firma.ViewModels.NewViewModels
 {
-    public class NewCommodityTypeViewModel : OneViewModel<TowarRodzaj>
+    public class NewCommodityTypeViewModel : OneViewModel<TowarRodzaj>, IDataErrorInfo
     {
+
         #region Konstruktor
 
         public NewCommodityTypeViewModel() : base("Rodzaj Towaru")
         {
-            Item = new TowarRodzaj();
+            Item = new TowarRodzaj()
+            {
+                IsActive = true
+            };
+        }
+
+        public NewCommodityTypeViewModel(int id) : base("Rodzaj Towaru")
+        {
+            Item = Db.TowarRodzaj.First(item => item.TowarRodzajID == id);
         }
 
         #endregion
+
+        #region Properties
 
         public string Nazwa
         {
@@ -27,13 +42,45 @@ namespace Firma.ViewModels.NewViewModels
             }
         }
 
+        #endregion
+
+        #region Metody
+
+        protected override bool IsValid()
+        {
+            return this[nameof(Nazwa)] == string.Empty;
+        }
+
         public override void Save()
         {
-            Item.IsActive = true;
-            //dodajemy towar do lokalnej kolekcji 
-            Db.TowarRodzaj.AddObject(Item);
-            //zapis do db
-            Db.SaveChanges();
+            try
+            {
+                Item.IsActive = true;
+                Db.TowarRodzaj.AddObject(Item);
+                Db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Db.SaveChanges();
+            }
         }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case nameof(Nazwa):
+                        return StringValidator.IsNotNull(Nazwa);
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string Error => string.Empty;
+
+        #endregion
     }
 }

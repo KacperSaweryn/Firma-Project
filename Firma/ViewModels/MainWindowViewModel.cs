@@ -27,7 +27,7 @@ namespace Firma.ViewModels
     {
         #region Komendy menu i paska narzedzi
 
-        public ICommand NowyTowarCommand //ta komenda zostanie podpieta pod menu i pasek narzedzi
+        public ICommand NowyTowarCommand
         {
             get { return new BaseCommand(() => CreateOrSwitchView<NewCommodityViewModel>()); }
         }
@@ -69,7 +69,7 @@ namespace Firma.ViewModels
 
         public ICommand TowarRodzajCommand
         {
-            get { return new BaseCommand(() => CreateOrSwitchView<NewCommodityTypeViewModel>()); }
+            get { return new BaseCommand(() => CreateOrSwitchView<AllCommodityTypeViewModel>()); }
         }
 
         public ICommand NowyTowarRodzajCommand
@@ -121,14 +121,17 @@ namespace Firma.ViewModels
         {
             get { return new BaseCommand(() => CreateOrSwitchView<AddCommodityViewModel>()); }
         }
+
         public ICommand SposobyPlatnosciCommand
         {
             get { return new BaseCommand(() => CreateOrSwitchView<AllPaymentMethodsViewModel>()); }
         }
+
         public ICommand SposobPlatnosciCommand
         {
             get { return new BaseCommand(() => CreateOrSwitchView<NewPaymentMethodViewModel>()); }
         }
+
 
         public ICommand OpenSupportWebsiteCommand
         {
@@ -182,12 +185,16 @@ namespace Firma.ViewModels
 
             return new List<CommandViewModel>
             {
-                new CommandViewModel("Towary", new BaseCommand(CreateOrSwitchView<AllCommodityViewModel>)),
-                new CommandViewModel("Nowy Towar", new BaseCommand(CreateOrSwitchView<NewCommodityViewModel>)),
-                new CommandViewModel("Faktury", new BaseCommand(CreateOrSwitchView<AllInvoiceViewModel>)),
                 new CommandViewModel("Nowa Faktura", new BaseCommand(CreateOrSwitchView<NewInvoiceViewModel>)),
-                new CommandViewModel("Kontrahenci", new BaseCommand(CreateOrSwitchView<AllContractorViewModel>)),
+                new CommandViewModel("Faktury", new BaseCommand(CreateOrSwitchView<AllInvoiceViewModel>)),
+                new CommandViewModel("Nowy Towar", new BaseCommand(CreateOrSwitchView<NewCommodityViewModel>)),
+                new CommandViewModel("Towary", new BaseCommand(CreateOrSwitchView<AllCommodityViewModel>)),
+                new CommandViewModel("PZ", new BaseCommand(CreateOrSwitchView<AddCommodityViewModel>)),
                 new CommandViewModel("Nowy Kontrahent", new BaseCommand(CreateOrSwitchView<NewContractorViewModel>)),
+                new CommandViewModel("Kontrahenci", new BaseCommand(CreateOrSwitchView<AllContractorViewModel>)),
+                new CommandViewModel("Nowy Rodzaj Towaru",
+                    new BaseCommand(CreateOrSwitchView<NewCommodityTypeViewModel>)),
+                new CommandViewModel("Rodzaje Towaru", new BaseCommand(CreateOrSwitchView<AllCommodityTypeViewModel>)),
                 new CommandViewModel("Raport Faktur",
                     new BaseCommand(CreateOrSwitchView<NumOfInvoicesInTImeViewModel>)),
                 new CommandViewModel("Raport Sprzedazy", new BaseCommand(CreateOrSwitchView<SaleReportViewModel>)),
@@ -203,7 +210,6 @@ namespace Firma.ViewModels
                 new CommandViewModel("Pracownicy", new BaseCommand(CreateOrSwitchView<AllEmployeeViewModel>)),
                 new CommandViewModel("Nowy Status", new BaseCommand(CreateOrSwitchView<NewStatusViewModel>)),
                 new CommandViewModel("Statusy", new BaseCommand(CreateOrSwitchView<AllStatusViewModel>)),
-                new CommandViewModel("PZ", new BaseCommand(CreateOrSwitchView<AddCommodityViewModel>)),
             };
         }
 
@@ -219,41 +225,48 @@ namespace Firma.ViewModels
 
         private void Edit(MessengerMessage<AllViewModel<object>, Type, int> message)
         {
-            if (message.Response == typeof(InvoiceForAllView))
+            if (message.Argument != -1)
             {
-                CreateView(new NewInvoiceViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(ContractorsForAllView))
-            {
-                CreateView(new NewContractorViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(CommodityForAllView))
-            {
-                CreateView(new NewCommodityViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(AddressForAllView))
-            {
-                CreateView(new NewAddressViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(PersonForAllView))
-            {
-                CreateView(new NewPersonViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(StatusForAllView))
-            {
-                CreateView(new NewStatusViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(UnitForAllView))
-            {
-                CreateView(new NewUnitViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(EmployeeForAllView))
-            {
-                CreateView(new NewEmployeeViewModel(message.Argument));
-            }
-            else if (message.Response == typeof(PaymentForAllView))
-            {
-                CreateView(new NewPaymentMethodViewModel(message.Argument));
+                if (message.Response == typeof(InvoiceForAllView))
+                {
+                    CreateView(new NewInvoiceViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(ContractorsForAllView))
+                {
+                    CreateView(new NewContractorViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(CommodityForAllView))
+                {
+                    CreateView(new NewCommodityViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(CommodityTypeForAllView))
+                {
+                    CreateView(new NewCommodityTypeViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(AddressForAllView))
+                {
+                    CreateView(new NewAddressViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(PersonForAllView))
+                {
+                    CreateView(new NewPersonViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(StatusForAllView))
+                {
+                    CreateView(new NewStatusViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(UnitForAllView))
+                {
+                    CreateView(new NewUnitViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(EmployeeForAllView))
+                {
+                    CreateView(new NewEmployeeViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(PaymentForAllView))
+                {
+                    CreateView(new NewPaymentMethodViewModel(message.Argument));
+                }
             }
         }
 
@@ -375,6 +388,14 @@ namespace Firma.ViewModels
             else if (name == "Płatności Show")
             {
                 CreateOrSwitchView<AllPaymentMethodsViewModel>();
+            }
+            else if (name == "Rodzaje Towaru Add")
+            {
+                CreateOrSwitchView<NewCommodityTypeViewModel>();
+            }
+            else if (name == "Rodzaje Towaru Show")
+            {
+                CreateOrSwitchView<AllCommodityTypeViewModel>();
             }
         }
 

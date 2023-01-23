@@ -50,13 +50,6 @@
                        HorizontalAlignment="Left"
                        Text="{Binding DaneAdresu}" TextWrapping="Wrap" Grid.RowSpan="2" TextAlignment="Left" />
 
-
-            <!-- <Label Grid.Row="0" Style="{StaticResource LabelStandardowy}">Tu będzie dodawanie towarów</Label> -->
-            <!-- <Label Grid.Row="1" Style="{StaticResource LabelError}">Tu będzie dodawanie towarów</Label> -->
-            <!-- <Button  Grid.Row="2" Content="Ok"/> -->
-
-            <!-- SaveAndCloseCommand -->
-
         </Grid>
     </ScrollViewer>
 </baseViews:OneAllNoAddViewBase>
