@@ -69,7 +69,7 @@
                                 </ToggleButton.Background>
                             </ToggleButton>
                         </ToolBar>
-                        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="Azure">
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="WhiteSmoke">
                             <Label Width="50" Content="Sortuj" Margin="2,2,2,2" />
                             <ComboBox Width="120" ItemsSource="{Binding SortComboBoxItems}"
                                       SelectedValue="{Binding SortField}" Margin="2,2,2,2" />
@@ -177,8 +177,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-    
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="Azure">
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="WhiteSmoke">
                             <Label Width="50" Content="Sortuj" Margin="2,2,2,2" />
                             <ComboBox Width="120" ItemsSource="{Binding SortComboBoxItems}"
                                       SelectedValue="{Binding SortField}" Margin="2,2,2,2" />
@@ -209,7 +209,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="Azure">
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="WhiteSmoke">
                             <Label Width="50" Content="Sortuj" Margin="2,2,2,2" />
                             <ComboBox Width="120" ItemsSource="{Binding SortComboBoxItems}"
                                       SelectedValue="{Binding SortField}" Margin="2,2,2,2" />
