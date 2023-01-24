@@ -23,7 +23,7 @@ namespace Firma.Models.BusinessLogic
 
         public FakturaB(FirmaEntities db) : base(db)
         {
-            DataOd = DateTime.Now;
+            DataOd = DateTime.Now.AddDays(-1);
             DataDo = DateTime.Now;
         }
 
@@ -35,7 +35,7 @@ namespace Firma.Models.BusinessLogic
         public int ObliczIlosc()
 
         {
-            return Db.Faktura.Where(item => item.DataWystawienia >= DataOd || item.DataWystawienia <= DataDo).ToList()
+            return Db.Faktura.Where(item => item.DataWystawienia >= DataOd && item.DataWystawienia <= DataDo).ToList()
                 .Count;
         }
            

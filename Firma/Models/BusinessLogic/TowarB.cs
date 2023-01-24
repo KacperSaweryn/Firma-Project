@@ -23,7 +23,7 @@ namespace Firma.Models.BusinessLogic
 
         public TowarB(FirmaEntities db) : base(db)
         {
-            DataOd = DateTime.Now;
+            DataOd = DataOd = DateTime.Now.AddDays(-1);
             DataDo = DateTime.Now;
         }
 
@@ -35,25 +35,18 @@ namespace Firma.Models.BusinessLogic
         public decimal ObliczUtarg()
 
         {
-           
+            try
+            {
                 return Db.PozycjaFaktury.Where(item => item.TowarID == TowarId &&
                                                        item.Faktura.DataWystawienia >= DataOd &&
                                                        item.Faktura.DataWystawienia <= DataDo).Sum(item =>
                     (item.Ilosc * item.CenaNetto) * (1 - item.Rabat));
             }
-           
-
-            // decimal sum = 0;
-            // sum = 
-            // Db.PozycjaFaktury.Where(item =>
-            //         item.TowarID == TowarId &&
-            //         item.Faktura.DataWystawienia >= DataOd &&
-            //         item.Faktura.DataWystawienia <= DataDo)
-            //     .Sum(item => item.Ilosc * item.CenaNetto * (1 - item.Rabat)) ?? 0;
-            // return sum;
-        
-
-       
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
 
         #endregion
     }

@@ -48,8 +48,8 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="Utarg wynosi:"></Label>
-                    <Label Grid.Column="1" Content="{Binding Utarg}"></Label>
+                    <Label Grid.Column="0" Content="Utarg w PLN wynosi:"></Label>
+                    <Label Grid.Column="1" Content="{Binding Utarg, StringFormat=C}"></Label>
 
                 </Grid>
             </Grid>

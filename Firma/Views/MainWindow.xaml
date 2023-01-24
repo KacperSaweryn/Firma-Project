@@ -87,10 +87,10 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Firmy">
+            <MenuItem Header="_Kontrahenci">
                 <MenuItem Header="_Kontrahenci">
                     <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/account.png" />
+                        <Image Source="/Views/Content/Icons/icons8-organization-64.png" />
                     </MenuItem.Icon>
                     <MenuItem Header="_Wszyscy" Command="{Binding KontrahenciCommand}">
                         <MenuItem.Icon>
@@ -141,7 +141,7 @@
             <MenuItem Header="_Pracownicy">
                 <MenuItem Header="_Pracownicy">
                     <MenuItem.Icon>
-                        <Image Source="/Views/Content/Icons/account.png" />
+                        <Image Source="/Views/Content/Icons/icons8-manager-64.png" />
                     </MenuItem.Icon>
                     <MenuItem Header="_Wszyscy" Command="{Binding PracownicyCommand}">
                         <MenuItem.Icon>
