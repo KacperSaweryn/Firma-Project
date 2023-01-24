@@ -37,10 +37,10 @@ namespace Firma.Models.BusinessLogic
         {
             try
             {
-                return Db.PozycjaFaktury.Where(item => item.TowarID == TowarId &&
+                return Math.Round((Db.PozycjaFaktury.Where(item => item.TowarID == TowarId &&
                                                        item.Faktura.DataWystawienia >= DataOd &&
                                                        item.Faktura.DataWystawienia <= DataDo).Sum(item =>
-                    (item.Ilosc * item.CenaNetto) * (1 - item.Rabat));
+                    (item.Ilosc * item.CenaNetto) * (1 - item.Rabat))),2);
             }
             catch (Exception e)
             {

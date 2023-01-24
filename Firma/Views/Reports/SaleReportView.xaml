@@ -49,7 +49,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="Utarg w PLN wynosi:"></Label>
-                    <Label Grid.Column="1" Content="{Binding Utarg, StringFormat=C}"></Label>
+                    <Label Grid.Column="1" Content="{Binding Utarg, StringFormat=N2}"></Label>
 
                 </Grid>
             </Grid>

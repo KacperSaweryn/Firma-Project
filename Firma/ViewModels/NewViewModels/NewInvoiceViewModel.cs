@@ -282,7 +282,6 @@ namespace Firma.ViewModels.NewViewModels
             ); towar.Ilosc -= pozycjaFaktury.Ilosc;
         }
 
-        //TODO dodac gdzies przy modify wypelnianie listy
         private void GetPozycjaFaktury2(MessengerMessage<NewInvoiceViewModel, PozycjaFaktury, object> obj)
         {
             if (obj.Sender == this && obj.Response != null)

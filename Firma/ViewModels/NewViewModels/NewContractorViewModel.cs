@@ -160,22 +160,7 @@ namespace Firma.ViewModels.NewViewModels
                 }
             }
         }
-
-
-        // public int KontrahentRodzaj
-        // {
-        //     get { return Item.RodzajID; }
-        //     set
-        //     {
-        //         if (value != Item.RodzajID)
-        //         {
-        //             Item.RodzajID = value;
-        //             base.OnPropertyChanged(() => KontrahentRodzaj);
-        //         }
-        //     }
-        // }
-
-
+        
         public int? PrzedstawicielKontrahentaID
         {
             get { return Item.PrzedstawicielKontrahentaID; }
@@ -242,8 +227,8 @@ namespace Firma.ViewModels.NewViewModels
             if (selected == null)
             {
                 Item.AdresID = 1;
-                DaneAdresu =
-                    $"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
+                DaneAdresu = "   Błąd!";
+                //$"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
             }
             else
             {

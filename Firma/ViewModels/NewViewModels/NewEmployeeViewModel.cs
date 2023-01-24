@@ -39,7 +39,7 @@ namespace Firma.ViewModels.NewViewModels
             var osobaId = Osoby.First(item => item.Key == Item.OsobaID).Key;
 
             //Item.OsobaID = Db.Osoba.First(item => item.OsobaID == id).OsobaID;
-            Osoba = Db.Osoba.First(item => item.OsobaID == osobaId).OsobaID;
+           // Osoba = Db.Osoba.First(item => item.OsobaID == osobaId).OsobaID;
             DaneOsobowe = $"{Item.Osoba.Nazwisko} {Item.Osoba.Imie}";
 
             Messenger.Default.Register<Osoba>(this, GetWybranaOsoba);
@@ -150,7 +150,8 @@ namespace Firma.ViewModels.NewViewModels
             if (selected == null)
             {
                 Item.OsobaID = 1;
-                DaneOsobowe = $"{Item.Osoba.Nazwisko} {Item.Osoba.Imie}";
+                DaneOsobowe = "   Błąd!";
+                //$"{Item.Osoba.Nazwisko} {Item.Osoba.Imie}";
             }
             else
             {

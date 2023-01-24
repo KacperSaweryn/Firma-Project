@@ -180,8 +180,8 @@ namespace Firma.ViewModels.NewViewModels
             if (selected == null)
             {
                 Item.AdresID = 1;
-                DaneAdresu =
-                    $"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
+                DaneAdresu = "   Błąd!";
+                //$"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
             }
             else
             {
