@@ -11,21 +11,18 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace Firma.ViewModels.Abstract
 {
-    public abstract class AllViewModel<T> : WorkspaceViewModel where T:class 
+    public abstract class AllViewModel<T> : WorkspaceViewModel where T : class
     {
         #region Fields
 
-       
         public readonly FirmaEntities firmaEntities;
 
         private T _SelectedItem;
-        public T SelectedItem {
-            get
 
-            {
-                return _SelectedItem;
-            }
-             set
+        public T SelectedItem
+        {
+            get { return _SelectedItem; }
+            set
             {
                 if (_SelectedItem != value)
                 {
@@ -34,21 +31,15 @@ namespace Firma.ViewModels.Abstract
                     OnPropertyChanged((() => SelectedItem));
                 }
             }
-            
-            
-             }
+        }
 
         protected virtual void AfterSelect()
         {
-           
         }
 
         public FirmaEntities FakturyEntities
         {
-            get
-            {
-                return firmaEntities;
-            }
+            get { return firmaEntities; }
         }
 
         private ICommand _RefreshCommand;
@@ -82,7 +73,6 @@ namespace Firma.ViewModels.Abstract
         }
 
 
-        //komenda do zaladowania towarow
         private BaseCommand _LoadCommand;
 
         private ICommand LoadCommand
@@ -91,7 +81,7 @@ namespace Firma.ViewModels.Abstract
             {
                 if (_LoadCommand == null)
                 {
-                    _LoadCommand = new BaseCommand(() => LoadItems()); 
+                    _LoadCommand = new BaseCommand(() => LoadItems());
                 }
 
                 return _LoadCommand;
@@ -106,7 +96,7 @@ namespace Firma.ViewModels.Abstract
             {
                 if (_EditCommand == null)
                 {
-                    _EditCommand = new BaseCommand(() => Edit()); 
+                    _EditCommand = new BaseCommand(() => Edit());
                 }
 
                 return _EditCommand;
@@ -115,27 +105,28 @@ namespace Firma.ViewModels.Abstract
 
 
         private BaseCommand _AddCommand;
+
         public ICommand AddCommand
         {
             get
             {
                 if (_AddCommand == null)
                 {
-                    _AddCommand = new BaseCommand(() => Add()); 
+                    _AddCommand = new BaseCommand(() => Add());
                 }
 
                 return _AddCommand;
             }
         }
 
-       
+
         private ObservableCollection<T> _List;
 
         public ObservableCollection<T> List
         {
             get
             {
-                if (_List == null) 
+                if (_List == null)
                 {
                     Load();
                 }
@@ -244,14 +235,13 @@ namespace Firma.ViewModels.Abstract
             }
         }
 
-
         #endregion
 
         #region Konstruktor
 
         public AllViewModel(string displayName)
         {
-            base.DisplayName = displayName; //tu ustawiamy nazwę zakładki
+            base.DisplayName = displayName;
             this.firmaEntities = new FirmaEntities();
             SortComboBoxItems = GetSortComboBoxItems();
             SearchComboBoxItems = GetSearchComboBoxItems();
@@ -298,11 +288,8 @@ namespace Firma.ViewModels.Abstract
             Messenger.Default.Send(message);
         }
 
-
         protected abstract int GetSelectedItemId();
-
 
         #endregion
     }
 }
-

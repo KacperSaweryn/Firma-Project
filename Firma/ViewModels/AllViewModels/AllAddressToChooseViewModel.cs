@@ -2,8 +2,6 @@
 {
     public class AllAddressToChooseViewModel : AllAddressViewModel
     {
-        
-
         #region Konstruktor
 
         public AllAddressToChooseViewModel() : base()

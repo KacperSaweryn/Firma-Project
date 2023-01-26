@@ -66,7 +66,6 @@ namespace Firma.ViewModels.AllViewModels
                         ? List.OrderByDescending(item => item.Email)
                         : List.OrderBy(item => item.Email));
                     break;
-
             }
         }
 
@@ -77,7 +76,6 @@ namespace Firma.ViewModels.AllViewModels
 
         protected override void Search()
         {
-
             if (!string.IsNullOrEmpty(SearchText))
                 switch (SearchField)
                 {
@@ -97,8 +95,6 @@ namespace Firma.ViewModels.AllViewModels
                         List = new ObservableCollection<PersonForAllView>(AllList.Where(item =>
                             item.Email.ToLower().Trim().Contains(SearchText)));
                         break;
-
-
                 }
             else
                 List = new ObservableCollection<PersonForAllView>(AllList);
@@ -114,9 +110,9 @@ namespace Firma.ViewModels.AllViewModels
         public override void Load()
         {
             AllList = (
-                from osoba in firmaEntities.Osoba 
+                from osoba in firmaEntities.Osoba
                 where osoba.IsActive == true
-                select new PersonForAllView() 
+                select new PersonForAllView()
                 {
                     OsobaID = osoba.OsobaID,
                     Imie = osoba.Imie,

@@ -14,9 +14,6 @@ namespace Firma.ViewModels.AllViewModels
     {
         #region Properties
 
-        
-
-        
         private Adres _wybranyAddress;
 
         public Adres WybranyAddress
@@ -31,7 +28,8 @@ namespace Firma.ViewModels.AllViewModels
                     if (_wybranyAddress != null)
                     {
                         MessageBox.Show($"Wybrano adres {_wybranyAddress.Poczta}, {_wybranyAddress.Miasto} " +
-                                        $"({_wybranyAddress.Ulica} {_wybranyAddress.NrDomu} {_wybranyAddress.NrLokalu})", "Info");
+                                        $"({_wybranyAddress.Ulica} {_wybranyAddress.NrDomu} {_wybranyAddress.NrLokalu})",
+                            "Info");
                         Messenger.Default.Send(_wybranyAddress);
                         OnRequestClose();
                     }
@@ -45,7 +43,6 @@ namespace Firma.ViewModels.AllViewModels
 
         public AllAddressViewModel() : base("Adresy")
         {
-
         }
 
         #endregion
@@ -126,7 +123,7 @@ namespace Firma.ViewModels.AllViewModels
 
         protected override List<string> GetSearchComboBoxItems()
         {
-            return new List<string>() { "Miasto","Poczta","Ulica" };
+            return new List<string>() { "Miasto", "Poczta", "Ulica" };
         }
 
         protected override int GetSelectedItemId()
@@ -136,23 +133,9 @@ namespace Firma.ViewModels.AllViewModels
 
         public override void Load()
         {
-            // List = new ObservableCollection<AddressForAllView>(
-            //     from adres in firmaEntities.Adres
-            //     where adres.IsActive == true
-            //     select new AddressForAllView()
-            //     {
-            //         AdresID = adres.AdresID,
-            //         Wojewodztwo = adres.Wojewodztwo.Nazwa,
-            //         Miasto = adres.Miasto,
-            //         Ulica = adres.Ulica,
-            //         NrDomu = adres.NrDomu,
-            //         NrLokalu = adres.NrLokalu,
-            //         Poczta = adres.Poczta,
-            //         Kraj = adres.Kraj
-            //     }
-            // );
+           
             AllList = (
-                from adres in firmaEntities.Adres 
+                from adres in firmaEntities.Adres
                 where adres.IsActive == true
                 select new AddressForAllView()
                 {
@@ -160,7 +143,7 @@ namespace Firma.ViewModels.AllViewModels
                     AdresID = adres.AdresID,
                     Poczta = adres.Poczta,
                     Miasto = adres.Miasto,
-                    Ulica = adres.Ulica ,
+                    Ulica = adres.Ulica,
                     NrDomu = adres.NrDomu,
                     NrLokalu = adres.NrLokalu
                 }
@@ -168,8 +151,6 @@ namespace Firma.ViewModels.AllViewModels
 
             List = new ObservableCollection<AddressForAllView>(AllList);
         }
-
-       
 
         #endregion
     }

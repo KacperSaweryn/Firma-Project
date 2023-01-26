@@ -17,9 +17,6 @@ namespace Firma.Models.EntitiesForView
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Adres { get; set; }
-      
-       
-      
 
         #endregion
     }

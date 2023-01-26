@@ -9,7 +9,6 @@ namespace Firma.ViewModels.NewViewModels
 {
     public class NewCommodityTypeViewModel : OneViewModel<TowarRodzaj>, IDataErrorInfo
     {
-
         #region Konstruktor
 
         public NewCommodityTypeViewModel() : base("Rodzaj Towaru")

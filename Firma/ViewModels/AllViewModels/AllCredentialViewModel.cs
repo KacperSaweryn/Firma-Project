@@ -47,7 +47,7 @@ namespace Firma.ViewModels.AllViewModels
         {
             List = new ObservableCollection<Credential>(
                 from credential
-                in firmaEntities.Credential
+                    in firmaEntities.Credential
                 where credential.IsActive == true
                 select credential
             );

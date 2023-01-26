@@ -15,8 +15,8 @@
         <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=TowarRodzajID}"/>
-                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=TowarRodzajID}" />
+                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

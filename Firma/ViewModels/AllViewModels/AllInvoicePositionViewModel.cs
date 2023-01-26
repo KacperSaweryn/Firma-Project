@@ -43,21 +43,6 @@ namespace Firma.ViewModels.AllViewModels
 
         public override void Load()
         {
-            // List = new ObservableCollection<InvoicePositionForAllView>(
-            //     from pozycjaFaktury in firmaEntities.PozycjaFaktury
-            //     where pozycjaFaktury.IsActive == true
-            //     select new InvoicePositionForAllView()
-            //     {
-            //         PozycjaFakturyID = pozycjaFaktury.PozycjaFakturyID,
-            //         FakturaNumer = pozycjaFaktury.Faktura.NumerFak,
-            //         TowarKod = pozycjaFaktury.Towar.Kod,
-            //         TowarNazwa = pozycjaFaktury.Towar.Nazwa,
-            //         Ilosc = pozycjaFaktury.Ilosc,
-            //         StawkaVat = pozycjaFaktury.Vat.StawkaVat,
-            //         CenaNetto = pozycjaFaktury.CenaNetto,
-            //         Rabat = pozycjaFaktury.Rabat,
-            //     }
-            // );
         }
 
         protected override int GetSelectedItemId()

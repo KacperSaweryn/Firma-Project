@@ -16,7 +16,7 @@ namespace Firma.ViewModels.Reports
         #region Fields
 
         private ICommand _obliczCommand;
-        
+
         public ICommand ObliczCommand
         {
             get
@@ -25,11 +25,11 @@ namespace Firma.ViewModels.Reports
                 {
                     _obliczCommand = new BaseCommand(() => ObliczIlosc());
                 }
-        
+
                 return _obliczCommand;
             }
         }
-        
+
         private decimal _ilosc;
 
         public decimal Ilosc

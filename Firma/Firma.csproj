@@ -43,6 +43,7 @@
     <None Remove="Views\Content\Icons\icons8-business-building-64.png" />
     <None Remove="Views\Content\Icons\icons8-business-report-64.png" />
     <None Remove="Views\Content\Icons\icons8-close-50.png" />
+    <None Remove="Views\Content\Icons\icons8-dividends-64.png" />
     <None Remove="Views\Content\Icons\icons8-graph-report-64.png" />
     <None Remove="Views\Content\Icons\icons8-home-address-64.png" />
     <None Remove="Views\Content\Icons\icons8-location-64.png" />
@@ -53,6 +54,7 @@
     <None Remove="Views\Content\Icons\icons8-new-copy-64.png" />
     <None Remove="Views\Content\Icons\icons8-ok-64.png" />
     <None Remove="Views\Content\Icons\icons8-organization-64.png" />
+    <None Remove="Views\Content\Icons\icons8-ratio-64.png" />
     <None Remove="Views\Content\Icons\icons8-sum-64.png" />
     <None Remove="Views\Content\Icons\icons8-users-64.png" />
     <None Remove="Views\Content\Icons\icon_magazyn.png" />
@@ -127,6 +129,9 @@
     <Resource Include="Views\Content\Icons\icons8-close-50.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\Content\Icons\icons8-dividends-64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Content\Icons\icons8-graph-report-64.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -155,6 +160,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\icons8-organization-64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Content\Icons\icons8-ratio-64.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\Content\Icons\icons8-sum-64.png">
@@ -314,6 +322,9 @@
     <Compile Update="Views\AllViews\AllPaymentMethodsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AllViews\AllVatView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NewViews\NewInvoicePositionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -321,6 +332,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NewViews\NewPaymentMethodView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewViews\NewVatView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NewViews\NewUnitView.xaml.cs">
@@ -390,6 +404,10 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AllViews\AllVatView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AllViews\StyleZakladekResources.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -403,6 +421,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NewViews\NewPaymentMethodView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewViews\NewVatView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

@@ -26,7 +26,8 @@ namespace Firma.ViewModels.AllViewModels
             if (SelectedItem != null)
             {
                 var tRodzaj =
-                    FakturyEntities.TowarRodzaj.FirstOrDefault(item => item.TowarRodzajID == SelectedItem.TowarRodzajID);
+                    FakturyEntities.TowarRodzaj.FirstOrDefault(item =>
+                        item.TowarRodzajID == SelectedItem.TowarRodzajID);
                 if (tRodzaj != null)
                 {
                     var messageBoxResult =
@@ -84,9 +85,9 @@ namespace Firma.ViewModels.AllViewModels
         public override void Load()
         {
             AllList = (
-                from tRodzaj in firmaEntities.TowarRodzaj 
+                from tRodzaj in firmaEntities.TowarRodzaj
                 where tRodzaj.IsActive == true
-                select new CommodityTypeForAllView() 
+                select new CommodityTypeForAllView()
                 {
                     TowarRodzajID = tRodzaj.TowarRodzajID,
                     Nazwa = tRodzaj.Nazwa

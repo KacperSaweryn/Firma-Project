@@ -2,8 +2,6 @@
 {
     public class AllContractorToChooseViewModel : AllContractorViewModel
     {
-        
-
         #region Konstruktor
 
         public AllContractorToChooseViewModel() : base()

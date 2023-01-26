@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using Firma.Helpers;
 using Firma.Models.Entities;
 using Firma.Models.EntitiesForView;
@@ -11,20 +12,18 @@ using GalaSoft.MvvmLight.Messaging;
 namespace Firma.ViewModels.NewViewModels
 {
     public class
-        NewInvoicePositionViewModel : OneViewModel<PozycjaFaktury>
+        NewInvoicePositionViewModel : OneViewModel<PozycjaFaktury>, IDataErrorInfo
     {
         #region Konstruktor
 
         public NewInvoicePositionViewModel() : base("Pozycja")
         {
-   
             Item = new PozycjaFaktury()
             {
                 IsActive = true,
                 CenaNetto = 0,
                 Rabat = 0,
                 Ilosc = 0
-                
             };
             Towary = Db.Towar.Where(item => item.IsActive == true)
                 .Select(item => new ComboBoxKeyAndValue()
@@ -34,7 +33,8 @@ namespace Firma.ViewModels.NewViewModels
             if (Towary.Count > 0)
             {
                 TowarID = Towary.First().Key;
-                Item.StawkaVat = Db.Towar.Where(item => item.TowarID == TowarID).Select(item => item.StawkaVatSprzedazy).First();
+                Item.StawkaVat = Db.Towar.Where(item => item.TowarID == TowarID).Select(item => item.StawkaVatSprzedazy)
+                    .First();
             }
         }
 
@@ -44,9 +44,6 @@ namespace Firma.ViewModels.NewViewModels
 
         public MessengerMessage<NewInvoiceViewModel, PozycjaFaktury, object> Message { get; set; }
         public List<ComboBoxKeyAndValue> Towary { get; set; }
-        public List<ComboBoxKeyAndValue> Kontrahenci { get; set; }
-
-
 
         public int TowarID
         {
@@ -74,7 +71,6 @@ namespace Firma.ViewModels.NewViewModels
             }
         }
 
-      
 
         public decimal Cena
         {
@@ -126,6 +122,32 @@ namespace Firma.ViewModels.NewViewModels
             Message.Response = Item;
             Messenger.Default.Send(Message);
         }
+
+        protected override bool IsValid()
+        {
+            return (this[nameof(Ilosc)] == string.Empty || this[nameof(Cena)] == string.Empty ||
+                    this[nameof(Rabat)] == string.Empty);
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case nameof(Ilosc):
+                        return StringValidator.IsNotNull(Ilosc.ToString());
+                    case nameof(Cena):
+                        return StringValidator.IsNotNull(Cena.ToString());
+                    case nameof(Rabat):
+                        return DecimalValidator.IsNotMinus(Rabat);
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string Error { get; }
 
         #endregion
     }

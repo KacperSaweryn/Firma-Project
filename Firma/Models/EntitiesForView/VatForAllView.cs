@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Firma.Models.EntitiesForView
 {
-    public class CommodityTypeForAllView
+    public class VatForAllView
 
     {
         #region Properties
 
-        public int TowarRodzajID { get; set; }
-        public string Nazwa { get; set; }
-
+        public int VatID { get; set; }
+        public int StawkaVat { get; set; }
+      
         #endregion
     }
 }

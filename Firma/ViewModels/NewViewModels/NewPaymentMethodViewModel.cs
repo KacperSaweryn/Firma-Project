@@ -97,6 +97,4 @@ namespace Firma.ViewModels.NewViewModels
 
         #endregion
     }
-
-    
 }

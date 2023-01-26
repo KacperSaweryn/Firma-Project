@@ -132,6 +132,16 @@ namespace Firma.ViewModels
             get { return new BaseCommand(() => CreateOrSwitchView<NewPaymentMethodViewModel>()); }
         }
 
+        public ICommand VatyCommand
+        {
+            get { return new BaseCommand(() => CreateOrSwitchView<AllVatViewModel>()); }
+        }
+
+        public ICommand VatCommand
+        {
+            get { return new BaseCommand(() => CreateOrSwitchView<NewVatViewModel>()); }
+        }
+
 
         public ICommand OpenSupportWebsiteCommand
         {
@@ -210,6 +220,8 @@ namespace Firma.ViewModels
                 new CommandViewModel("Pracownicy", new BaseCommand(CreateOrSwitchView<AllEmployeeViewModel>)),
                 new CommandViewModel("Nowy Status", new BaseCommand(CreateOrSwitchView<NewStatusViewModel>)),
                 new CommandViewModel("Statusy", new BaseCommand(CreateOrSwitchView<AllStatusViewModel>)),
+                new CommandViewModel("VAT", new BaseCommand(CreateOrSwitchView<NewVatViewModel>)),
+                new CommandViewModel("Stawki VAT", new BaseCommand(CreateOrSwitchView<AllVatViewModel>)),
             };
         }
 
@@ -266,6 +278,10 @@ namespace Firma.ViewModels
                 else if (message.Response == typeof(PaymentForAllView))
                 {
                     CreateView(new NewPaymentMethodViewModel(message.Argument));
+                }
+                else if (message.Response == typeof(VatForAllView))
+                {
+                    CreateView(new NewVatViewModel(message.Argument));
                 }
             }
         }
@@ -396,6 +412,14 @@ namespace Firma.ViewModels
             else if (name == "Rodzaje Towaru Show")
             {
                 CreateOrSwitchView<AllCommodityTypeViewModel>();
+            }
+            else if (name == "VAT Add")
+            {
+                CreateOrSwitchView<NewVatViewModel>();
+            }
+            else if (name == "Stawki VAT Show")
+            {
+                CreateOrSwitchView<AllVatViewModel>();
             }
         }
 

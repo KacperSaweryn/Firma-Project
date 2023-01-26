@@ -11,7 +11,7 @@ using Firma.Models.EntitiesForView;
 
 namespace Firma.ViewModels.Reports
 {
-    public class SaleReportViewModel :WorkspaceViewModel
+    public class SaleReportViewModel : WorkspaceViewModel
     {
         #region Fields
 

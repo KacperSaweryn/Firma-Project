@@ -83,9 +83,9 @@ namespace Firma.ViewModels.AllViewModels
         public override void Load()
         {
             AllList = (
-                from unit in firmaEntities.Jednostka //dla kazdej faktury z db
+                from unit in firmaEntities.Jednostka
                 where unit.IsActive == true
-                select new UnitForAllView() //tworzymy nowa fakture for all view
+                select new UnitForAllView()
                 {
                     JednostkaID = unit.JednostkaID,
                     JednostkaNazwa = unit.JednostkaNazwa

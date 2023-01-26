@@ -20,13 +20,12 @@ namespace Firma.ViewModels.AllViewModels
 
         #region Helpers
 
-
         public override void Load()
         {
             AllList = (
-                from faktura in firmaEntities.Faktura //dla kazdej faktury z db
+                from faktura in firmaEntities.Faktura
                 where faktura.IsActive == true
-                select new InvoiceForAllView() //tworzymy nowa fakture for all view
+                select new InvoiceForAllView()
                 {
                     FakturaID = faktura.FakturaID,
                     NumerFak = faktura.NumerFak,
@@ -62,6 +61,36 @@ namespace Firma.ViewModels.AllViewModels
                         ? List.OrderByDescending(item => item.NumerFak)
                         : List.OrderBy(item => item.NumerFak));
                     break;
+                case "Data wystawienia":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.DataWystawienia)
+                        : List.OrderBy(item => item.DataWystawienia));
+                    break;
+                case "Termin":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.TerminPlatnosci)
+                        : List.OrderBy(item => item.TerminPlatnosci));
+                    break;
+                case "Kontrahent":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.KontrahentNazwa)
+                        : List.OrderBy(item => item.KontrahentNazwa));
+                    break;
+                case "Adres":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.KontrahentAdres)
+                        : List.OrderBy(item => item.KontrahentAdres));
+                    break;
+                case "NIP":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.KontrahentNIP)
+                        : List.OrderBy(item => item.KontrahentNIP));
+                    break;
+                case "Sp. płatności":
+                    List = new ObservableCollection<InvoiceForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.SposobPlatnosciNazwa)
+                        : List.OrderBy(item => item.SposobPlatnosciNazwa));
+                    break;
             }
         }
 
@@ -84,6 +113,22 @@ namespace Firma.ViewModels.AllViewModels
                         List = new ObservableCollection<InvoiceForAllView>(AllList.Where(item =>
                             item.KontrahentNIP.ToLower().Trim().Contains(SearchText)));
                         break;
+                    case "Data wystawienia":
+                        List = new ObservableCollection<InvoiceForAllView>(AllList.Where(item =>
+                            item.DataWystawienia.ToString().Trim().Contains(SearchText)));
+                        break;
+                    case "Termin":
+                        List = new ObservableCollection<InvoiceForAllView>(AllList.Where(item =>
+                            item.TerminPlatnosci.ToString().Trim().Contains(SearchText)));
+                        break;
+                    case "Adres":
+                        List = new ObservableCollection<InvoiceForAllView>(AllList.Where(item =>
+                            item.KontrahentAdres.ToLower().Trim().Contains(SearchText)));
+                        break;
+                    case "Sp. płatności":
+                        List = new ObservableCollection<InvoiceForAllView>(AllList.Where(item =>
+                            item.SposobPlatnosciNazwa.ToLower().Trim().Contains(SearchText)));
+                        break;
                 }
             }
             else
@@ -96,12 +141,14 @@ namespace Firma.ViewModels.AllViewModels
 
         protected override List<string> GetSearchComboBoxItems()
         {
-            return new List<string>() { "Numer", "Kontrahent", "NIP" };
+            return new List<string>()
+                { "Numer", "Kontrahent", "NIP", "Data wystawienia", "Termin", "Adres", "Sp. płatności" };
         }
 
         protected override List<string> GetSortComboBoxItems()
         {
-            return new List<string>() { "Numer", "Kontrahent", "NIP" };
+            return new List<string>()
+                { "Numer", "Kontrahent", "NIP", "Data wystawienia", "Termin", "Adres", "Sp. płatności" };
         }
 
         protected override void Delete()

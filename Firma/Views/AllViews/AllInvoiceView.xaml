@@ -1,12 +1,12 @@
 ﻿<baseViews:AllViewBase x:Class="Firma.Views.AllViews.AllInvoiceView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Firma.Views"
-             xmlns:baseViews="clr-namespace:Firma.Views.BaseViews"
-             mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:local="clr-namespace:Firma.Views"
+                       xmlns:baseViews="clr-namespace:Firma.Views.BaseViews"
+                       mc:Ignorable="d"
+                       d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml" />
     </UserControl.Resources>
@@ -15,59 +15,22 @@
         <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=FakturaID}"/>
-                    <DataGridTextColumn Header="Numer" Binding="{Binding Path=NumerFak}"/>
-                    <DataGridTextColumn Header="Data wystawienia" Binding="{Binding Path=DataWystawienia, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                    <DataGridTextColumn Header="Termin" Binding="{Binding Path=TerminPlatnosci, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                    <DataGridTextColumn Header="Kontrahent" Binding="{Binding Path=KontrahentNazwa}"/>
-                    <DataGridTextColumn Header="NIP" Binding="{Binding Path=KontrahentNIP}"/>
-                    <DataGridTextColumn Header="Adres" Binding="{Binding Path=KontrahentAdres}"/>
-                    <DataGridTextColumn Header="Lokal" Binding="{Binding Path=KontrahentAdresLokal}"/>
-                    <DataGridTextColumn Header="Sp. płatnosci" Binding="{Binding Path=SposobPlatnosciNazwa}"/>
-                   
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=FakturaID}" />
+                    <DataGridTextColumn Header="Numer" Binding="{Binding Path=NumerFak}" />
+                    <DataGridTextColumn Header="Data wystawienia"
+                                        Binding="{Binding Path=DataWystawienia, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    <DataGridTextColumn Header="Termin"
+                                        Binding="{Binding Path=TerminPlatnosci, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    <DataGridTextColumn Header="Kontrahent" Binding="{Binding Path=KontrahentNazwa}" />
+                    <DataGridTextColumn Header="NIP" Binding="{Binding Path=KontrahentNIP}" />
+                    <DataGridTextColumn Header="Adres" Binding="{Binding Path=KontrahentAdres}" />
+                    <DataGridTextColumn Header="Lokal" Binding="{Binding Path=KontrahentAdresLokal}" />
+                    <DataGridTextColumn Header="Sp. płatnosci" Binding="{Binding Path=SposobPlatnosciNazwa}" />
+
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
 
     </Grid>
 
-    <!-- <Grid Background="White"> -->
-    <!--     <ScrollViewer HorizontalScrollBarVisibility="Visible"> -->
-    <!--         <Grid> -->
-    <!--             <Grid.RowDefinitions> -->
-    <!--                 <RowDefinition Height="30" /> -->
-    <!--                 <RowDefinition Height="Auto" /> -->
-    <!--             </Grid.RowDefinitions> -->
-    <!--             <Grid.ColumnDefinitions> -->
-    <!--                 <ColumnDefinition Width="Auto" /> -->
-    <!--                 <ColumnDefinition Width="*" /> -->
-    <!--             </Grid.ColumnDefinitions> -->
-    <!--             <Grid Grid.Column="0"> -->
-    <!--                 <Grid.ColumnDefinitions> -->
-    <!--                     <ColumnDefinition Width="Auto" /> -->
-    <!--                     <ColumnDefinition Width="200" /> -->
-    <!--                 </Grid.ColumnDefinitions> -->
-    <!--                 <Label Grid.Column="0" Content="Wyszukaj" Style="{StaticResource LabelStandardowy}"></Label> -->
-    <!--                 <TextBox Grid.Column="1" Style="{StaticResource TextBoxStandardowy}" IsEnabled="True"></TextBox> -->
-    <!--             </Grid> -->
-    <!--             <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding Faktury}" -->
-    <!--                       AutoGenerateColumns="False"> -->
-    <!--                 <DataGrid.Columns> -->
-    <!--                     <DataGridTextColumn Width="15" /> -->
-    <!--                     <DataGridTextColumn Header="Lp" Binding="{Binding Path=Lp, StringFormat='0'}" Width="30" /> -->
-    <!--                     <DataGridTextColumn Header="Numer" Binding="{Binding Path=Numer, StringFormat=S}" Width="150" /> -->
-    <!--                     <DataGridTextColumn Header="Status" Binding="{Binding Path=Status, StringFormat=S}" Width="70" /> -->
-    <!--                     <DataGridTextColumn Header="Typ" Binding="{Binding Path=Typ, StringFormat=S}" Width="100" /> -->
-    <!--                     <DataGridTextColumn Header="Data wystawienia" -->
-    <!--                                         Binding="{Binding Path=DataWystawienia, StringFormat=d}" Width="110" /> -->
-    <!--                     <DataGridTextColumn Header="Data płatności" -->
-    <!--                                         Binding="{Binding Path=DataPlatnosci, StringFormat=d}" Width="100" /> -->
-    <!--                     <DataGridTextColumn Header="Kwota" -->
-    <!--                                         Binding="{Binding Path=Kwota, StringFormat=C}" Width="100" /> -->
-    <!--                     <DataGridTextColumn Header="VAT" Width="50" Binding="{Binding Path=Vat, StringFormat='0'}" /> -->
-    <!--                 </DataGrid.Columns> -->
-    <!--             </DataGrid> -->
-    <!--         </Grid> -->
-    <!--     </ScrollViewer> -->
-    <!-- </Grid> -->
 </baseViews:AllViewBase>

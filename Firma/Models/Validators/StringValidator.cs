@@ -9,8 +9,5 @@ namespace Firma.Models.Validators
     public class StringValidator : Validator
     {
         public static string IsNotNull(string value) => value == null ? "Wartość jest wymagana" : string.Empty;
-        
-
-       
     }
 }

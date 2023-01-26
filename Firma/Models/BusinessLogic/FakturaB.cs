@@ -38,11 +38,6 @@ namespace Firma.Models.BusinessLogic
             return Db.Faktura.Where(item => item.DataWystawienia >= DataOd && item.DataWystawienia <= DataDo).ToList()
                 .Count;
         }
-           
-        
-        
-
-       
 
         #endregion
     }

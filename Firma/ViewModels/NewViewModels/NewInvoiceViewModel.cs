@@ -39,7 +39,7 @@ namespace Firma.ViewModels.NewViewModels
             Db.Faktura.AddObject(Item);
             SetLists();
             SetDefaultValues();
-            
+
             Messenger.Default.Register<Kontrahent>(this, GetWybranyKontrahent);
             Messenger.Default.Register<PozycjaFaktury>(this, GetPozycjaFaktury);
             Messenger.Default.Register<MessengerMessage<NewInvoiceViewModel, PozycjaFaktury, object>>(this,
@@ -205,7 +205,8 @@ namespace Firma.ViewModels.NewViewModels
             }
             catch
             {
-                KontrahentID = Kontrahenci.First().Key;
+                KontrahentID = Db.Kontrahent.Where(item => item.IsActive == false).Select(item => item.KontrahentID)
+                    .First();
             }
         }
 
@@ -239,7 +240,7 @@ namespace Firma.ViewModels.NewViewModels
             if (selected == null)
             {
                 Item.KontrahentID = 5;
-                DaneKontrahenta = $"{Item.Kontrahent.Nazwa} - {Item.Kontrahent.NIP} - {Item.Kontrahent.Kod}";
+                DaneKontrahenta = "   Błąd!";
             }
             else
             {
@@ -276,10 +277,9 @@ namespace Firma.ViewModels.NewViewModels
                     pozycjaFaktury.Ilosc,
                     pozycjaFaktury.Rabat,
                     pozycjaFaktury.Towar.Vat.StawkaVat
-                    
                 )
-            
-            ); towar.Ilosc -= pozycjaFaktury.Ilosc;
+            );
+            towar.Ilosc -= pozycjaFaktury.Ilosc;
         }
 
         private void GetPozycjaFaktury2(MessengerMessage<NewInvoiceViewModel, PozycjaFaktury, object> obj)
@@ -288,15 +288,16 @@ namespace Firma.ViewModels.NewViewModels
             {
                 Item.PozycjaFaktury.Add(obj.Response);
                 Towar towar = Db.Towar.First(item => item.TowarID == obj.Response.TowarID);
-                
+
                 List.Add(new InvoicePositionForAllView(
                     towar.Kod,
                     towar.Nazwa,
-                     Convert.ToDecimal(obj.Response.CenaNetto.ToString("F")),
+                    Convert.ToDecimal(obj.Response.CenaNetto.ToString("F")),
                     obj.Response.Ilosc,
                     obj.Response.Rabat,
                     obj.Response.Towar.Vat.StawkaVat)
-                ); towar.Ilosc -= obj.Response.Ilosc;
+                );
+                towar.Ilosc -= obj.Response.Ilosc;
             }
         }
 
@@ -316,9 +317,7 @@ namespace Firma.ViewModels.NewViewModels
                         pozycja.Rabat,
                         pozycja.Towar.Vat.StawkaVat));
                 }
-
             }
-            
         }
 
         protected override bool IsValid()
@@ -355,14 +354,13 @@ namespace Firma.ViewModels.NewViewModels
         {
             if (Item.KontrahentID > 1 && Item.KontrahentID != 5 && Item.NumerFak != string.Empty)
             {
-                
                 Db.SaveChanges();
             }
             else if (Item.KontrahentID > 1 && Item.KontrahentID != 5 && Item.NumerFak != string.Empty)
             {
                 NumerFak = DateTime.Today.Year.ToString() + "/" + Faktury.Count;
             }
-            else if(Item.KontrahentID == 5)
+            else if (Item.KontrahentID == 5)
             {
                 Item.KontrahentID = 5;
 

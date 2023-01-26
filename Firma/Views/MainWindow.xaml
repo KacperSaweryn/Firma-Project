@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Firma"
-    
+
         xmlns:helpers="clr-namespace:Firma.Helpers"
 
         mc:Ignorable="d"
@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.Column="0" Margin="3" VerticalAlignment="Center">
-         
+
             <MenuItem Header="_Magazyn">
                 <MenuItem Header="Towary">
                     <MenuItem.Icon>
@@ -42,7 +42,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/Jeden.png"></Image>
                         </MenuItem.Icon>
-                    </MenuItem> 
+                    </MenuItem>
                     <MenuItem Header="_Nowy" Command="{Binding NowyTowarCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/product-48.png"></Image>
@@ -155,7 +155,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Sposoby płatności">
+            <MenuItem Header="_Konfiguracje">
                 <MenuItem Header="_Sposoby płatności">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/Icons/icons8-money-bag-64.png" />
@@ -171,8 +171,6 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Statusy">
                 <MenuItem Header="_Statusy">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/Icons/icons8-ok-64.png" />
@@ -185,6 +183,21 @@
                     <MenuItem Header="_Nowy" Command="{Binding StatusCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/Icons/icons8-sum-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Stawki VAT">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/Icons/icons8-dividends-64.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Wszystkie" Command="{Binding VatyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-dividends-64.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Nowa" Command="{Binding VatCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/Icons/icons8-ratio-64.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
@@ -238,7 +251,8 @@
                         </RibbonMenuButton>
                     </RibbonGroup>
                     <RibbonGroup Header="Rodzaj Towaru">
-                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png" Label="Rodzaje">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/package-variant-closed-plus-48.png"
+                                          Label="Rodzaje">
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/package-variant-closed.png"
                                             Header="Nowy" Command="{Binding NowyTowarRodzajCommand}" />
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/Jeden.png"
@@ -259,7 +273,8 @@
                 </RibbonTab>
                 <RibbonTab Header="Firmy">
                     <RibbonGroup Header="Kontrahent">
-                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-business-building-64.png" Label="Kontrahent">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-business-building-64.png"
+                                          Label="Kontrahent">
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
                                             Header="Nowy" Command="{Binding NowyKontrahentCommand}" />
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-business-building-64.png"
@@ -297,6 +312,34 @@
                                             Header="Nowy" Command="{Binding PracownikCommand}" />
                             <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-name-tag-64.png"
                                             Header="Wszyscy" Command="{Binding PracownicyCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Konfiguracje">
+                    <RibbonGroup Header="Płatności">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-money-bag-64.png"
+                                          Label="Płatności">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-money-bill-64.png"
+                                            Header="Nowy" Command="{Binding SposobPlatnosciCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-money-bag-64.png"
+                                            Header="Wszystkie" Command="{Binding SposobyPlatnosciCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Statusy">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-ok-64.png" Label="Statusy">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-sum-64.png"
+                                            Header="Nowy" Command="{Binding StatusCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-ok-64.png"
+                                            Header="Wszystkie" Command="{Binding StatusyCommand}" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                    <RibbonGroup Header="VATy">
+                        <RibbonMenuButton LargeImageSource="/Views/Content/Icons/icons8-dividends-64.png"
+                                          Label="Stawki VAT">
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-ratio-64.png"
+                                            Header="Nowa" Command="{Binding VatCommand}" />
+                            <RibbonMenuItem ImageSource="/Views/Content/Icons/icons8-dividends-64.png"
+                                            Header="Wszystkie" Command="{Binding VatyCommand}" />
                         </RibbonMenuButton>
                     </RibbonGroup>
                 </RibbonTab>

@@ -27,7 +27,7 @@ namespace Firma.ViewModels.NewViewModels
             };
             SetLists();
             SetDefaultValues();
-        
+
             Messenger.Default.Register<Adres>(this, GetWybranyAddress);
         }
 
@@ -36,7 +36,7 @@ namespace Firma.ViewModels.NewViewModels
             Item = Db.Osoba.First(item => item.OsobaID == id);
             SetLists();
             SetDefaultValues();
-            
+
             DaneAdresu =
                 $"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
             Messenger.Default.Register<Adres>(this, GetWybranyAddress);
@@ -181,7 +181,6 @@ namespace Firma.ViewModels.NewViewModels
             {
                 Item.AdresID = 1;
                 DaneAdresu = "   Błąd!";
-                //$"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
             }
             else
             {

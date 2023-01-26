@@ -70,14 +70,14 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
     <Style x:Key="MarginNowyView" TargetType="{x:Type Control}">
-        <Setter Property="Margin" Value="0,8,0,8"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,8,0,8" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
     <Style x:Key="CheckboxNowyView" TargetType="{x:Type Control}">
-        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="Margin" Value="0,8,0,8" />
     </Style>
     <Style x:Key="MarginNowyViewTextBlock" TargetType="{x:Type TextBlock}">
-        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="Margin" Value="0,8,0,8" />
     </Style>
 
 

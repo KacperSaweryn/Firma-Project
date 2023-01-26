@@ -6,8 +6,8 @@ namespace Firma.Views.BaseViews
     {
         static OneAllNoAddViewBase()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(OneAllNoAddViewBase), new FrameworkPropertyMetadata(typeof(OneAllNoAddViewBase)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(OneAllNoAddViewBase),
+                new FrameworkPropertyMetadata(typeof(OneAllNoAddViewBase)));
         }
     }
 }
-

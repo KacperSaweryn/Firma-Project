@@ -52,7 +52,7 @@
                       IsChecked="{Binding Path=IsPodatnikVat}" Width="40" Height="40" Grid.RowSpan="2" />
 
             <Label Grid.Row="5" Grid.Column="0" Content="Adres" Style="{StaticResource MarginNowyView}" />
-           
+
             <Button Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left"
                     Content="Wybierz adres" Command="{Binding WybierzAdresCommand}" />
 

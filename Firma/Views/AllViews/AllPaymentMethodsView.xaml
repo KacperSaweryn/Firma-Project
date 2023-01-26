@@ -10,18 +10,17 @@
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml" />
     </UserControl.Resources>
-    
-        <Grid Background="White">
-            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
+
+    <Grid Background="White">
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=SposobPlatnosciID}"/>
-                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}"/>
-                    <DataGridTextColumn Header="Opis" Binding="{Binding Path=Opis}"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=SposobPlatnosciID}" />
+                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}" />
+                    <DataGridTextColumn Header="Opis" Binding="{Binding Path=Opis}" />
                 </DataGrid.Columns>
-                </DataGrid>
+            </DataGrid>
         </ScrollViewer>
-        
+
     </Grid>
 </baseViews:AllViewBase>
-

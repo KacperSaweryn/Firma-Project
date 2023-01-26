@@ -9,11 +9,11 @@ using Firma.ViewModels.Abstract;
 
 namespace Firma.ViewModels.AllViewModels
 {
-    public class AllStatusViewModel : AllViewModel<StatusForAllView>
+    public class AllVatViewModel : AllViewModel<VatForAllView>
     {
         #region Konstruktor
 
-        public AllStatusViewModel() : base("Statusy")
+        public AllVatViewModel() : base("Stawki VAT")
         {
         }
 
@@ -26,14 +26,13 @@ namespace Firma.ViewModels.AllViewModels
             if (SelectedItem != null)
             {
                 var status =
-                    FakturyEntities.Status.FirstOrDefault(item => item.StatusID == SelectedItem.StatusID);
+                    FakturyEntities.Vat.FirstOrDefault(item => item.VatID == SelectedItem.VatID);
                 if (status != null)
                 {
                     var messageBoxResult =
                         MessageBox.Show("Czy na pewno chcesz usunąć?", "Usuń", MessageBoxButton.YesNo);
                     if (messageBoxResult == MessageBoxResult.Yes)
                     {
-                        status.IsActive = false;
                         FakturyEntities.SaveChanges();
                         AllList.Remove(SelectedItem);
                         List.Remove(SelectedItem);
@@ -46,17 +45,17 @@ namespace Firma.ViewModels.AllViewModels
         {
             switch (SortField)
             {
-                case "Nazwa":
-                    List = new ObservableCollection<StatusForAllView>(SortDescending
-                        ? List.OrderByDescending(item => item.Nazwa)
-                        : List.OrderBy(item => item.Nazwa));
+                case "Stawka":
+                    List = new ObservableCollection<VatForAllView>(SortDescending
+                        ? List.OrderByDescending(item => item.StawkaVat)
+                        : List.OrderBy(item => item.StawkaVat));
                     break;
             }
         }
 
         protected override List<string> GetSortComboBoxItems()
         {
-            return new List<string>() { "Nazwa" };
+            return new List<string>() { "Stawka" };
         }
 
         protected override void Search()
@@ -64,41 +63,39 @@ namespace Firma.ViewModels.AllViewModels
             if (!string.IsNullOrEmpty(SearchText))
                 switch (SearchField)
                 {
-                    case "Nazwa":
-                        List = new ObservableCollection<StatusForAllView>(AllList.Where(item =>
-                            item.Nazwa.ToLower().Trim().Contains(SearchText)));
+                    case "Stawka":
+                        List = new ObservableCollection<VatForAllView>(AllList.Where(item =>
+                            item.StawkaVat.ToString().Trim().Contains(SearchText)));
                         break;
                 }
             else
-                List = new ObservableCollection<StatusForAllView>(AllList);
+                List = new ObservableCollection<VatForAllView>(AllList);
 
             Sort();
         }
 
-
         protected override List<string> GetSearchComboBoxItems()
         {
-            return new List<string>() { "Nazwa" };
+            return new List<string>() { "Stawka" };
         }
 
         public override void Load()
         {
             AllList = (
-                from status in firmaEntities.Status
-                where status.IsActive == true
-                select new StatusForAllView()
+                from unit in firmaEntities.Vat
+                select new VatForAllView()
                 {
-                    StatusID = status.StatusID,
-                    Nazwa = status.Nazwa
+                    VatID = unit.VatID,
+                    StawkaVat = unit.StawkaVat
                 }
             ).Take(20).ToList();
 
-            List = new ObservableCollection<StatusForAllView>(AllList);
+            List = new ObservableCollection<VatForAllView>(AllList);
         }
 
         protected override int GetSelectedItemId()
         {
-            return SelectedItem?.StatusID ?? -1;
+            return SelectedItem?.VatID ?? -1;
         }
 
         #endregion

@@ -31,8 +31,8 @@
 
             <Label Grid.Row="0" Grid.Column="0" Content="Kod" Style="{StaticResource MarginNowyView}" />
             <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource MarginNowyView}" Width="100"
-                     HorizontalAlignment="Left" Name="TextBoxKod" 
-                     Text = "{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                     HorizontalAlignment="Left" Name="TextBoxKod"
+                     Text="{Binding Path=Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
             <Label Grid.Row="1" Grid.Column="0" Content="Nazwa" Style="{StaticResource MarginNowyView}" />
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource MarginNowyView}" Width="150"
@@ -44,19 +44,21 @@
                       HorizontalAlignment="Left"
                       ItemsSource="{Binding Rodzaje}" DisplayMemberPath="Value"
                       SelectedValue="{Binding RodzajID, ValidatesOnDataErrors=true, UpdateSourceTrigger=PropertyChanged, 
-                                  NotifyOnValidationError=true}" SelectedValuePath="Key" />
+                                  NotifyOnValidationError=true}"
+                      SelectedValuePath="Key" />
 
             <Label Grid.Row="3" Grid.Column="0" Content="Jednostka" Style="{StaticResource MarginNowyView}" />
             <ComboBox Grid.Row="3" Grid.Column="1" Style="{StaticResource MarginNowyView}" Width="150"
                       HorizontalAlignment="Left"
                       ItemsSource="{Binding Jednostki}" DisplayMemberPath="Value"
                       SelectedValue="{Binding Jednostka, ValidatesOnDataErrors=true, UpdateSourceTrigger=PropertyChanged, 
-                                  NotifyOnValidationError=true}" SelectedValuePath="Key" />
+                                  NotifyOnValidationError=true}"
+                      SelectedValuePath="Key" />
 
             <Label Grid.Row="4" Grid.Column="0" Content="Stawka VAT sprzedaży" Style="{StaticResource MarginNowyView}" />
 
             <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource MarginNowyView}" Width="50"
-                      HorizontalAlignment="Left" 
+                      HorizontalAlignment="Left"
                       ItemsSource="{Binding VatList}" DisplayMemberPath="Value"
                       SelectedValue="{Binding StawkaVatSprzedazy , ValidatesOnDataErrors=True,  UpdateSourceTrigger=LostFocus, ValidatesOnNotifyDataErrors=True}"
                       SelectedValuePath="Key" />

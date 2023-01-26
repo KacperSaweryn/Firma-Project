@@ -22,7 +22,6 @@ namespace Firma.Models.EntitiesForView
         public string Rodzaj { get; set; }
         public bool isPodatnikVat { get; set; }
         public string Przedstawiciel { get; set; }
-      
 
         #endregion
     }

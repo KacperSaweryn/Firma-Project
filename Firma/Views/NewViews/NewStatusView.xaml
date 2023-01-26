@@ -13,19 +13,19 @@
     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
 
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="200" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            
-        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+
+            </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Nazwa" Style="{StaticResource MarginNowyView}" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left"
-                 Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left"
+                     Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
 
         </Grid>
-</ScrollViewer>
+    </ScrollViewer>
 </baseViews:OneAllNoAddViewBase>

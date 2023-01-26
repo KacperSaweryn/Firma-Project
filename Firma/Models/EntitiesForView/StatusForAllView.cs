@@ -13,7 +13,7 @@ namespace Firma.Models.EntitiesForView
 
         public int StatusID { get; set; }
         public string Nazwa { get; set; }
-      
+
         #endregion
     }
 }

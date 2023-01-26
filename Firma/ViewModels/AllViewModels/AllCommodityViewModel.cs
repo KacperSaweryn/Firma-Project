@@ -75,7 +75,6 @@ namespace Firma.ViewModels.AllViewModels
                         List = new ObservableCollection<CommodityForAllView>(AllList.Where(item =>
                             item.Kod.ToLower().Trim().Contains(SearchText)));
                         break;
-
                 }
             else
                 List = new ObservableCollection<CommodityForAllView>(AllList);
@@ -105,10 +104,8 @@ namespace Firma.ViewModels.AllViewModels
                     Cena = towar.Cena,
                     Marza = towar.Marza,
                     Ilosc = towar.Ilosc
-
                 }
             ).Take(20).ToList();
-
         }
 
         protected override int GetSelectedItemId()

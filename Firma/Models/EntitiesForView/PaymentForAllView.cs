@@ -14,7 +14,7 @@ namespace Firma.Models.EntitiesForView
         public int SposobPlatnosciID { get; set; }
         public string Nazwa { get; set; }
         public string Opis { get; set; }
-      
+
         #endregion
     }
 }

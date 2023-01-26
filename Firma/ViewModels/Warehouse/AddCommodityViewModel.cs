@@ -97,8 +97,8 @@ namespace Firma.ViewModels.NewViewModels
             Towar towar = new Towar();
             TowaryDb = Db.Towar.Where(item => item.IsActive).ToList();
 
-            
-            if (Ilosc <= 0 || Ilosc == null)
+
+            if (Ilosc <= 0 || Ilosc == null || Ilosc.ToString() == string.Empty || WybraneTowarId <= 0)
             {
                 towar.Ilosc += ilosc;
                 MessageBox.Show("Zapis niepoprawny, sprawdź wartości", "Bląd");
@@ -119,14 +119,13 @@ namespace Firma.ViewModels.NewViewModels
             Db.SaveChanges();
         }
 
-        
+
         public string this[string columnName]
         {
             get
             {
                 switch (columnName)
                 {
-                   
                     case nameof(Ilosc):
                         return DecimalValidator.IsNotMinus(Ilosc);
                     default:

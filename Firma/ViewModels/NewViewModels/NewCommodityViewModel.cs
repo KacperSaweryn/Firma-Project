@@ -19,7 +19,6 @@ namespace Firma.ViewModels.NewViewModels
             {
                 IsActive = true,
                 Ilosc = 0
-                
             };
 
             SetLists();
@@ -43,128 +42,123 @@ namespace Firma.ViewModels.NewViewModels
         public List<ComboBoxKeyAndValue> Rodzaje { get; set; }
         public List<ComboBoxKeyAndValueNumbers> VatList { get; set; }
 
-
         public string Kod
         {
-            get { return Item.Kod; }
+            get => Item.Kod;
             set
             {
                 if (value != Item.Kod)
                 {
                     Item.Kod = value;
-                    base.OnPropertyChanged(() => Kod);
+                    OnPropertyChanged(() => Kod);
                 }
             }
         }
 
         public string Nazwa
         {
-            get { return Item.Nazwa; }
+            get => Item.Nazwa;
             set
             {
                 if (value != Item.Nazwa)
                 {
                     Item.Nazwa = value;
-                    base.OnPropertyChanged(() => Nazwa);
+                    OnPropertyChanged(() => Nazwa);
                 }
             }
         }
 
         public int StawkaVatSprzedazy
         {
-            get { return Item.StawkaVatSprzedazy; }
+            get => Item.StawkaVatSprzedazy;
             set
             {
                 if (value != Item.StawkaVatSprzedazy)
                 {
                     Item.StawkaVatSprzedazy = value;
 
-                    base.OnPropertyChanged(() => StawkaVatSprzedazy);
+                    OnPropertyChanged(() => StawkaVatSprzedazy);
                 }
             }
         }
 
         public int RodzajID
         {
-            get { return Item.RodzajID; }
+            get => Item.RodzajID;
             set
             {
                 if (value != Item.RodzajID)
                 {
                     Item.RodzajID = value;
-                    base.OnPropertyChanged(() => RodzajID);
+                    OnPropertyChanged(() => RodzajID);
                 }
             }
         }
 
         public int StawkaVatZakupu
         {
-            get { return Item.StawkaVatZakupu; }
+            get => Item.StawkaVatZakupu;
             set
             {
                 if (value != Item.StawkaVatZakupu)
                 {
                     Item.StawkaVatZakupu = value;
-                    base.OnPropertyChanged(() => StawkaVatZakupu);
+                    OnPropertyChanged(() => StawkaVatZakupu);
                 }
             }
         }
 
         public decimal Cena
         {
-            get { return Item.Cena; }
+            get => Item.Cena;
             set
             {
                 if (value != Item.Cena)
                 {
                     Item.Cena = value;
-                    base.OnPropertyChanged(() => Cena);
+                    OnPropertyChanged(() => Cena);
                 }
             }
         }
 
         public decimal Marza
         {
-            get { return Item.Marza; }
+            get => Item.Marza;
             set
             {
                 if (value != Item.Marza)
                 {
                     Item.Marza = value;
-                    base.OnPropertyChanged(() => Marza);
+                    OnPropertyChanged(() => Marza);
                 }
             }
         }
 
         public int Jednostka
         {
-            get { return Item.JednostkaID; }
+            get => Item.JednostkaID;
             set
             {
                 if (value != Item.JednostkaID)
                 {
                     Item.JednostkaID = value;
-                    base.OnPropertyChanged(() => Jednostka);
+                    OnPropertyChanged(() => Jednostka);
                 }
             }
         }
 
         public decimal? Ilosc
         {
-            get { return Item.Ilosc; }
+            get => Item.Ilosc;
             set
             {
-               
                 if (value != Item.Ilosc)
                 {
                     Item.Ilosc = value;
-                    base.OnPropertyChanged(() => Ilosc);
+                    OnPropertyChanged(() => Ilosc);
                 }
             }
         }
-
-
-
 
         #endregion
 
@@ -191,22 +185,15 @@ namespace Firma.ViewModels.NewViewModels
 
         protected override void SetDefaultValues()
         {
-            if (Jednostki.Count > 0)
-            {
-                Jednostka = Jednostki.First().Key;
-            }
+            if (Jednostki.Count > 0) Jednostka = Jednostki.First().Key;
 
             if (VatList.Count > 0)
             {
-                
                 StawkaVatSprzedazy = VatList.First().Key;
                 StawkaVatZakupu = VatList.First().Key;
             }
 
-            if (Rodzaje.Count > 0)
-            {
-                RodzajID = VatList.First().Key;
-            }
+            if (Rodzaje.Count > 0) RodzajID = VatList.First().Key;
         }
 
         protected override void ShowAddView()

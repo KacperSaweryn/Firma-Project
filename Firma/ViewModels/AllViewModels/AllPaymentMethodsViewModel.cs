@@ -26,7 +26,8 @@ namespace Firma.ViewModels.AllViewModels
             if (SelectedItem != null)
             {
                 var status =
-                    FakturyEntities.SposobPlatnosci.FirstOrDefault(item => item.SposobPlatnosciID == SelectedItem.SposobPlatnosciID);
+                    FakturyEntities.SposobPlatnosci.FirstOrDefault(item =>
+                        item.SposobPlatnosciID == SelectedItem.SposobPlatnosciID);
                 if (status != null)
                 {
                     var messageBoxResult =
@@ -85,7 +86,7 @@ namespace Firma.ViewModels.AllViewModels
             AllList = (
                 from unit in firmaEntities.SposobPlatnosci
                 where unit.IsActive == true
-                select new PaymentForAllView() 
+                select new PaymentForAllView()
                 {
                     SposobPlatnosciID = unit.SposobPlatnosciID,
                     Nazwa = unit.Nazwa,

@@ -57,7 +57,6 @@ namespace Firma.ViewModels.Abstract
         public OneAllViewModel(string displayName, string displayNameList) : base(displayName)
         {
             DisplayNameList = displayNameList;
-           
         }
 
         #endregion
@@ -65,13 +64,9 @@ namespace Firma.ViewModels.Abstract
 
         #region Metody
 
-        
-
         protected abstract void ShowAddView();
         protected abstract void SetLists();
         protected abstract void SetDefaultValues();
-
-      
 
         #endregion
     }

@@ -7,36 +7,35 @@ using Firma.ViewModels.Abstract;
 
 namespace Firma.ViewModels.NewViewModels
 {
-    public class NewUnitViewModel : OneViewModel<Jednostka>, IDataErrorInfo
+    public class NewVatViewModel : OneViewModel<Vat>, IDataErrorInfo
     {
         #region Konstruktor
 
-        public NewUnitViewModel() : base("Jednostka")
+        public NewVatViewModel() : base("VAT")
         {
-            Item = new Jednostka()
+            Item = new Vat()
             {
-                IsActive = true
             };
         }
 
-        public NewUnitViewModel(int id) : base("Jednostka")
+        public NewVatViewModel(int id) : base("VAT")
         {
-            Item = Db.Jednostka.First(item => item.JednostkaID == id);
+            Item = Db.Vat.First(item => item.VatID == id);
         }
 
         #endregion
 
         #region Properties
 
-        public string JednostkaNazwa
+        public int StawkaVat
         {
-            get { return Item.JednostkaNazwa; }
+            get { return Item.StawkaVat; }
             set
             {
-                if (value != Item.JednostkaNazwa)
+                if (value != Item.StawkaVat)
                 {
-                    Item.JednostkaNazwa = value;
-                    base.OnPropertyChanged(() => JednostkaNazwa);
+                    Item.StawkaVat = value;
+                    base.OnPropertyChanged(() => StawkaVat);
                 }
             }
         }
@@ -47,15 +46,14 @@ namespace Firma.ViewModels.NewViewModels
 
         protected override bool IsValid()
         {
-            return this[nameof(JednostkaNazwa)] == string.Empty;
+            return this[nameof(StawkaVat)] == string.Empty;
         }
 
         public override void Save()
         {
             try
             {
-                Item.IsActive = true;
-                Db.Jednostka.AddObject(Item);
+                Db.Vat.AddObject(Item);
                 Db.SaveChanges();
             }
             catch (Exception e)
@@ -70,8 +68,8 @@ namespace Firma.ViewModels.NewViewModels
             {
                 switch (columnName)
                 {
-                    case nameof(JednostkaNazwa):
-                        return StringValidator.IsNotNull(JednostkaNazwa);
+                    case nameof(StawkaVat):
+                        return DecimalValidator.IsNotMinus(StawkaVat);
                     default:
                         return string.Empty;
                 }

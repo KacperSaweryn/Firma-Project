@@ -26,14 +26,12 @@ namespace Firma.ViewModels.NewViewModels
             };
             SetLists();
             SetDefaultValues();
-           
+
             Messenger.Default.Register<Adres>(this, GetWybranyAddress);
-          
         }
 
         public NewContractorViewModel(int id) : base("Kontrahent", "Adres")
         {
-
             Item = Db.Kontrahent.First(item => item.KontrahentID == id);
 
             SetLists();
@@ -160,7 +158,7 @@ namespace Firma.ViewModels.NewViewModels
                 }
             }
         }
-        
+
         public int? PrzedstawicielKontrahentaID
         {
             get { return Item.PrzedstawicielKontrahentaID; }
@@ -228,7 +226,6 @@ namespace Firma.ViewModels.NewViewModels
             {
                 Item.AdresID = 1;
                 DaneAdresu = "   Błąd!";
-                //$"{Item.Adres.Poczta}, {Item.Adres.Miasto} ul. {Item.Adres.Ulica} {Item.Adres.NrDomu}/{Item.Adres.NrLokalu}";
             }
             else
             {

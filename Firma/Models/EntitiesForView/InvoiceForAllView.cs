@@ -13,17 +13,12 @@ namespace Firma.Models.EntitiesForView
 
         public int FakturaID { get; set; }
         public string NumerFak { get; set; }
-
         public DateTime? DataWystawienia { get; set; }
         public DateTime? TerminPlatnosci { get; set; }
-
         public string KontrahentNazwa { get; set; }
         public string KontrahentNIP { get; set; }
-
         public string KontrahentAdres { get; set; }
         public string KontrahentAdresLokal { get; set; }
-
-
         public string SposobPlatnosciNazwa { get; set; }
 
         #endregion

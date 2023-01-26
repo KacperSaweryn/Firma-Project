@@ -1,4 +1,4 @@
-﻿<baseViews:AllViewBase x:Class="Firma.Views.AllViews.AllStatusView"
+﻿<baseViews:AllViewBase x:Class="Firma.Views.AllViews.AllVatView"
                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,8 +15,8 @@
         <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=StatusID}" />
-                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}" />
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=VatID}" />
+                    <DataGridTextColumn Header="Stawka" Binding="{Binding Path=StawkaVat}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

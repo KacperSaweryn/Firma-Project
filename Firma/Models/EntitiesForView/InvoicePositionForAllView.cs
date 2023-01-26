@@ -21,7 +21,8 @@ namespace Firma.Models.EntitiesForView
         public decimal CenaNetto { get; set; }
         public decimal Rabat { get; set; }
 
-        public InvoicePositionForAllView(string towarKod, string towarNazwa, decimal cenaNetto, decimal ilosc, decimal rabat, int stawkaVat)
+        public InvoicePositionForAllView(string towarKod, string towarNazwa, decimal cenaNetto, decimal ilosc,
+            decimal rabat, int stawkaVat)
         {
             TowarKod = towarKod;
             TowarNazwa = towarNazwa;
@@ -29,7 +30,6 @@ namespace Firma.Models.EntitiesForView
             Ilosc = ilosc;
             Rabat = rabat;
             StawkaVat = stawkaVat;
-            
         }
 
         #endregion

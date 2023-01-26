@@ -12,7 +12,7 @@ namespace Firma.ViewModels.AllViewModels
     public class AllContractorViewModel : AllViewModel<ContractorsForAllView>
     {
         private Kontrahent _wybranyKontrahent;
-        
+
         public Kontrahent WybranyKontrahent
         {
             get { return _wybranyKontrahent; }
@@ -62,7 +62,6 @@ namespace Firma.ViewModels.AllViewModels
                             kontrahent.Adres.NrDomu,
                     AdresLokal = "/" + kontrahent.Adres.NrLokalu,
                     Status = kontrahent.Status.Nazwa,
-                   // Rodzaj = kontrahent.KontrahentRodzaj.Nazwa,
                     isPodatnikVat = kontrahent.IsPodatnikVat,
                     Przedstawiciel = kontrahent.Osoba.Nazwisko
                 }
@@ -75,7 +74,7 @@ namespace Firma.ViewModels.AllViewModels
         {
             return SelectedItem?.KontrahentID ?? -1;
         }
-      
+
 
         protected override void Sort()
         {
@@ -131,7 +130,7 @@ namespace Firma.ViewModels.AllViewModels
 
         protected override List<string> GetSortComboBoxItems()
         {
-            return new List<string>() { "Nazwa","NIP","Kod" };
+            return new List<string>() { "Nazwa", "NIP", "Kod" };
         }
 
         protected override void Delete()
@@ -155,7 +154,6 @@ namespace Firma.ViewModels.AllViewModels
             }
         }
 
-       
         #endregion
     }
 }

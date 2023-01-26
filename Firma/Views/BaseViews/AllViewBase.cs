@@ -36,7 +36,8 @@ namespace Firma.Views.BaseViews
     {
         static AllViewBase()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(AllViewBase), new FrameworkPropertyMetadata(typeof(AllViewBase)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(AllViewBase),
+                new FrameworkPropertyMetadata(typeof(AllViewBase)));
         }
     }
 }

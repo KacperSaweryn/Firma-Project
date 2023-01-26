@@ -10,15 +10,22 @@ using Firma.Models.Entities;
 
 namespace Firma.ViewModels.Abstract
 {
-    //klasa z ktorej beda dziedziczyly wszystkie zakladki np dodajace recordy
+    /// <summary>
+    /// Klasa po której dziedziczą zakladki
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class OneViewModel<T> : WorkspaceViewModel
     {
         #region Fields
 
-        //tu jest cala db
+        /// <summary>
+        /// Cała baza
+        /// </summary>
         public FirmaEntities Db { get; set; }
 
-        //tu jest dodawany towar
+       /// <summary>
+       /// Dodawanie Itemu
+       /// </summary>
         public T Item { get; set; }
 
         #endregion
@@ -27,7 +34,7 @@ namespace Firma.ViewModels.Abstract
 
         public OneViewModel(string displayName)
         {
-            base.DisplayName = displayName; //tu ustawiamy nazwę zakładki
+            base.DisplayName = displayName; 
             Db = new FirmaEntities();
         }
 
@@ -35,7 +42,7 @@ namespace Firma.ViewModels.Abstract
 
         #region Command
 
-        //to jest komenda ktora zostanie podpieta (zbindowana) z przyciskiem zapisz i zamknij. Komenda ta wywola funkcje SaveAndClose
+       
         private BaseCommand _SaveAndCloseCommand;
 
         public ICommand SaveAndCloseCommand
@@ -55,15 +62,16 @@ namespace Firma.ViewModels.Abstract
 
         #region Save
         public abstract void Save();
+        /// <summary>
+        /// Zapisz i zamknij. Używa metody Save();
+        /// </summary>
         private void saveAndClose()
         {
             if (IsValid())
             {
-                //Messenger.Default.Send();
-                //zapisuje towar
                 Save();
                 MessageBox.Show("Zapis poprawny", "Sukces");
-                //zamyka zakladke
+                
                 base.OnRequestClose();
             }
             else

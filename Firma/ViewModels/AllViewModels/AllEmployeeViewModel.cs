@@ -112,8 +112,6 @@ namespace Firma.ViewModels.AllViewModels
                 {
                     PracownikID = pracownik.PracownikID,
                     Stanowisko = pracownik.Stanowisko,
-                    // Osoba = pracownik.Osoba.Nazwisko + " " +
-                    //         pracownik.Osoba.Imie,
                     Nazwisko = pracownik.Osoba.Nazwisko,
                     Imie = pracownik.Osoba.Imie,
                     Adres = pracownik.Osoba.Adres.Poczta + "," +
